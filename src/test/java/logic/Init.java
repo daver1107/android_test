@@ -9,10 +9,10 @@ import java.net.URL;
 
 public class Init {
     protected AndroidDriver<WebElement> driver;
-    private static final String APPIUM_URL = "http://0.0.0.0:4723/wd/hub";
+    private static final String APPIUM_URL = "http://127.0.0.1:4723/wd/hub";
 
     @Before
-    void setUp() throws MalformedURLException {
+    public void setUp() throws MalformedURLException {
         URL URL = new URL(APPIUM_URL);
         this.driver = new AndroidDriver<>(URL, this.getAndroidDesiredCapabilities());
     }
@@ -21,8 +21,9 @@ public class Init {
     {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName","Android");
-        capabilities.setCapability("Pixel 2 API 29","ver10");
-
+        capabilities.setCapability("avd","Pixelphone");
+        capabilities.setCapability("deviceName","AndroidTestDevice");
+        capabilities.setCapability("platformVersion","10.0");
         capabilities.setCapability("automationName","Appium");
         capabilities.setCapability("appPackage","org.wikipedia");
         capabilities.setCapability("appActivity",".main.MainActivity");
