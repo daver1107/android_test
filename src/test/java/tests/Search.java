@@ -23,10 +23,10 @@ public class Search extends Init {
         driver.findElement(By.id("org.wikipedia:id/fragment_onboarding_skip_button")).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(search)).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("org.wikipedia:id/search_src_text")))
-                .sendKeys("asfdasfdasfdasfasfdsadasdas");
+                .sendKeys("Jadfbdsfbdfsbfdsvsdfva");
         if (checkSearchResults())
-            System.out.println("Works as expected");
-        else throw new Exception("Actual and expected results do not meet");
+            System.out.println("Works as expected " + checkSearchResults());
+        else throw new Exception("Actual and expected results do not meet " + checkSearchResults());
 
 //        PageObjectMain pom = new PageObjectMain(this.driver);
  //        WebElement skip = pom.waitForElementAndClick(
