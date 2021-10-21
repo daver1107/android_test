@@ -18,18 +18,18 @@ public class Search extends Init {
     @Test
     public void findRandomText() throws Exception {
 
-        PageObjectMain pom = new PageObjectMain(this.driver);
         WebDriverWait wait = new WebDriverWait(driver, 5);
 
         driver.findElement(By.id("org.wikipedia:id/fragment_onboarding_skip_button")).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(search)).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(search))
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("org.wikipedia:id/search_src_text")))
                 .sendKeys("asfdasfdasfdasfasfdsadasdas");
         if (checkSearchResults())
             System.out.println("Works as expected");
         else throw new Exception("Actual and expected results do not meet");
 
-        //        WebElement skip = pom.waitForElementAndClick(
+//        PageObjectMain pom = new PageObjectMain(this.driver);
+ //        WebElement skip = pom.waitForElementAndClick(
 //                "id:org.wikipedia:id/fragment_onboarding_skip_button",
 //                "Cannot find Skip button",
 //                5
